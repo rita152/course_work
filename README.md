@@ -25,6 +25,10 @@ conda activate cource_work
 python main.py
 ```
 
+**⚠️ 首次运行注意**：
+- 需要**开启全局代理**访问Yahoo Finance获取数据
+- 如已有数据文件，选择"n"跳过获取（无需代理）
+
 **运行时间**：首次约30秒，后续约10秒
 
 ---
