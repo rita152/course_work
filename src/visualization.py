@@ -186,16 +186,21 @@ class PortfolioVisualizer:
         idx_max_return = self.results['expected_return'].idxmax()
         idx_balanced = (self.results['mu'] - 1.0).abs().idxmin()  # Balanced portfolio with mu~1
         
+        # Get mu values for optimized strategies
+        mu_min_risk = self.results.loc[idx_min_risk, 'mu']
+        mu_balanced = self.results.loc[idx_balanced, 'mu']
+        mu_max_return = self.results.loc[idx_max_return, 'mu']
+        
         strategies = {
-            'Min Risk Optimized': {
+            f'Min Risk Optimized (μ={mu_min_risk:.2f})': {
                 'return': self.results.loc[idx_min_risk, 'expected_return'],
                 'risk': self.results.loc[idx_min_risk, 'risk_mad']
             },
-            'Balanced Optimized': {
+            f'Balanced Optimized (μ={mu_balanced:.2f})': {
                 'return': self.results.loc[idx_balanced, 'expected_return'],
                 'risk': self.results.loc[idx_balanced, 'risk_mad']
             },
-            'Max Return Optimized': {
+            f'Max Return Optimized (μ={mu_max_return:.2f})': {
                 'return': self.results.loc[idx_max_return, 'expected_return'],
                 'risk': self.results.loc[idx_max_return, 'risk_mad']
             }
