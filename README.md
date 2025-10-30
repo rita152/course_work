@@ -18,10 +18,16 @@
 ## 🚀 快速开始
 
 ```bash
-# 1. 激活环境
+# 1.创建环境
+conda create -n course_work python=3.10
+
+# 2. 激活环境
 conda activate cource_work
 
-# 2. 运行程序
+# 3.安装依赖
+pip install -r requirements.txt
+
+# 4. 运行程序
 python main.py
 ```
 
